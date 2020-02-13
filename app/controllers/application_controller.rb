@@ -19,4 +19,8 @@ class ApplicationController < Sinatra::Base
     !!session[:user_id]
   end
 
+  def reditect_if_not_logged_in 
+    redirect '/' if !is_logged_in?
+  end
+
 end
