@@ -16,7 +16,6 @@ class UserController < ApplicationController
 
     post '/signup' do 
         user = User.new(params[:user])
-
         if user.save
             session
             redirect "/user/#{user.id}"
