@@ -1,0 +1,7 @@
+<h1>all blogs</h1>
+
+<ul>
+    <%@blog.each do |blog|%>
+    <li><a href="/blog/<%=blog.id%>"><%=blog.title%></a></li>
+    <% end %>
+</ul>

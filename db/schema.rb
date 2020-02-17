@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20200213185424) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
+    t.text     "content"
     t.boolean  "completed"
     t.integer  "user_id"
     t.datetime "created_at", null: false

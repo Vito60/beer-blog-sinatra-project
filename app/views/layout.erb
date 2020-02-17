@@ -16,9 +16,14 @@
   <body>
   <nav>
     <ul>
+    <%if is_logged_in?%>
+      <li><a href="/logout">Logout</a></li>
+      <% else %>
       <li><a href="/signup">Signup</a></li>
       <li><a href="/login">Login</a></li>
-      <li><a href="/logout">Logout</a></li>
+
+    <%end %>
+
     </ul>
   </nav>
     <div class="wrapper">
