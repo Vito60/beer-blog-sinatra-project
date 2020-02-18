@@ -1,7 +1,18 @@
-<h1>all blogs</h1>
-
+<h1>Beer Blogs</h1>
+<div>
+<h5>Your Blogs</h5>
 <ul>
     <%@blog.each do |blog|%>
+    <%if current_user.id == blog.user_id%>
     <li><a href="/blog/<%=blog.id%>"><%=blog.title%></a></li>
     <% end %>
+    <% end %>
 </ul>
+<br>
+<h5>Other Blogs</h5>
+    <%@other_blogs.each do |blog|%>
+    <%if current_user.id != blog.user_id%>
+    <li><a href="/blog/<%=blog.id%>"><%=blog.title%></a></li>
+    <% end %>
+    <% end %>
+</div>

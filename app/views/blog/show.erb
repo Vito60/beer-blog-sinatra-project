@@ -3,7 +3,7 @@
 <%=@blog.content%>
 </div>
 
-<%if current_user.id == @blog.id%>
+<%if current_user.id == @blog.user_id%>
 <ul>
     <li>
     <a href="/blog/<%=@blog.id%>/edit">Edit Blog</a>

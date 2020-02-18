@@ -10,4 +10,13 @@
         <input type="password" name="user[password]" id="password">
     </div>
     <input type="submit" value="Create Account">
+    <%if @errors == nil%>
+<%else%>
+<%@errors.each do |error|%>
+<%if error == "Password digest can't be blank"%>
+<%else%>
+           <li><%=error%></li>
+<%end%>
+<%end%>
+<%end%>
 </form>

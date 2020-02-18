@@ -18,8 +18,9 @@ class UserController < ApplicationController
         user = User.new(params[:user])
         if user.save
             session
-            redirect "/user/#{user.id}"
+            redirect "/login"
         else
+            @errors = user.errors.full_messages 
             erb :'user/new'
         end
     end

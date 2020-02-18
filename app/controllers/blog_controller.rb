@@ -3,6 +3,7 @@ class BlogController < ApplicationController
     get '/blog' do 
         if is_logged_in?
             @blog = current_user.blog
+            @other_blogs = Blog.all
             erb :'blog/index'
         else
             redirect '/login'
@@ -35,7 +36,7 @@ class BlogController < ApplicationController
 
     get '/blog/:id/edit' do 
         redirect_if_not_logged_in
-        find_blog(params[:id])
+        @blog = find_blog(params[:id])
         authorize_user_to_blog(@blog)
 
         erb :'blog/edit'
@@ -43,7 +44,7 @@ class BlogController < ApplicationController
 
     patch '/blog/:id' do 
         redirect_if_not_logged_in
-        find_blog(params[:id])
+        @blog = find_blog(params[:id])
         authorize_user_to_blog(@blog)
 
         if @blog.update(params[:blog])

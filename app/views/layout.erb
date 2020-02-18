@@ -17,6 +17,7 @@
   <nav>
     <ul>
     <%if is_logged_in?%>
+      <li><a href="/user/<%=current_user.id%>">Home Page</a></li>
       <li><a href="/logout">Logout</a></li>
       <% else %>
       <li><a href="/signup">Signup</a></li>
