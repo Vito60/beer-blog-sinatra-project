@@ -1,10 +1,12 @@
 class UserController < ApplicationController
 
     get '/user/:id' do 
-        @user = User.find_by_id(params[:id])
-
-        if @user 
-            erb :'/user/show'
+        if current_user != nil && @user = User.find_by_id(params[:id])
+            if @user.id == current_user.id
+                erb :'/user/show'
+            else 
+                redirect "/user/#{current_user.id}"
+            end
         else
             redirect '/'
         end

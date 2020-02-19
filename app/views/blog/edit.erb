@@ -9,12 +9,9 @@
 
 <div>
 <label for="content">Content:</label>
-<input type="text" name="blog[content]" id="content">
+<input type="text" name="blog[content]" id="content" value="<%=@blog.content%>">
 </div>
 
-<div>
-<label for="completed">Complete? </label>
-<input type="checkbox" name="blog[completed]" id="completed">
-</div>
+
 <input type="submit" value="Update Blog">
 </form>

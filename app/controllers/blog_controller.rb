@@ -23,7 +23,7 @@ class BlogController < ApplicationController
         if blog.save
         redirect '/blog'
         else
-            erb :'list/new'
+            erb :'blog/new'
         end
     end
 

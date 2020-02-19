@@ -11,12 +11,9 @@
     </div>
     <input type="submit" value="Create Account">
     <%if @errors == nil%>
-<%else%>
-<%@errors.each do |error|%>
-<%if error == "Password digest can't be blank"%>
-<%else%>
-           <li><%=error%></li>
-<%end%>
-<%end%>
-<%end%>
+    <%else%>
+        <%@errors.uniq.each do |error|%>
+            <li><%=error%></li>
+        <%end%>
+    <%end%>
 </form>
