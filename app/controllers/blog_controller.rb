@@ -29,9 +29,12 @@ class BlogController < ApplicationController
 
     get '/blog/:id' do 
         redirect_if_not_logged_in
-        @blog = find_blog(params[:id])
-
-        erb :'blog/show'
+        if find_blog(params[:id])
+            @blog = find_blog(params[:id])
+            erb :'blog/show'
+        else
+            redirect '/'
+        end
     end
 
     get '/blog/:id/edit' do 

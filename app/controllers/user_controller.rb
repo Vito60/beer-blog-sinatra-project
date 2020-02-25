@@ -27,4 +27,15 @@ class UserController < ApplicationController
         end
     end
 
+    delete '/user/:id' do 
+        @user = User.find_by_id(params[:id])
+        if @user.id == current_user.id 
+            @user.destroy
+            session.clear
+            redirect '/'
+        else
+            redirect '/'
+        end
+    end
+
 end
